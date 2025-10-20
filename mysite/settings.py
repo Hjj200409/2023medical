@@ -9,11 +9,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# NOTE: This is a sample secret key. In production, generate a unique key using:
+# python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 SECRET_KEY = 'django-insecure-!#$%^&*()_+1234567890qwertyuiopasdfghjklzxcvbnm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# NOTE: In production, replace '*' with specific domain names
+# Example: ALLOWED_HOSTS = ['example.com', 'www.example.com']
 ALLOWED_HOSTS = ['*']
 
 # Application definition
@@ -95,15 +99,21 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# Uncomment and configure for production
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security settings for production (uncomment when deploying)
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_SSL_REDIRECT = True
